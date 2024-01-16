@@ -34,6 +34,7 @@ public class MyArrayList<T> {
             System.arraycopy(data, 0, newData, 0, indexElement);
             System.arraycopy(data, indexElement + 1, newData, indexElement, index - indexElement);
         }
+        index--;
         data = newData;
     }
 

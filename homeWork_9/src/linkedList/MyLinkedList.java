@@ -10,6 +10,8 @@ public class MyLinkedList<T> {
     //clear() очищает коллекцию
     private Node<T> head;
     private Node<T> tail;
+    private int count;
+
 
     public void add(T item) {
         Node<T> node = new Node<>();
@@ -21,17 +23,12 @@ public class MyLinkedList<T> {
             node.setPrevious(tail);
             this.tail = node;
         }
+        count++;
     }
 
     public int size() {
         if (head == null) {
             return 0;
-        }
-        int count = 1;
-        Node<T> last = head;
-        while (last.getNext() != null) {
-            last = last.getNext();
-            count++;
         }
         return count;
     }
@@ -73,5 +70,6 @@ public class MyLinkedList<T> {
                 search.getPrevious().setNext(search.getNext());
                 search.getNext().setPrevious(search.getPrevious());
             }
+            count--;
     }
 }
